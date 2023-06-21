@@ -1,0 +1,248 @@
+/* 
+=================================
+App.js
+=================================
+*/
+.app {
+  display: flex;
+  flex: 1;
+  max-width: 100%;
+  min-height: 100vh;
+}
+.app .app-left {
+  flex: 0.5;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.app .app-right {
+  flex: 1.5;
+}
+@media (max-width: 700px) {
+  .app {
+    flex-direction: column;
+  }
+}
+
+/* 
+=================================
+Wheel.jsx
+=================================
+*/
+.putt1 {
+  background-color: var(--clr-onePutt);
+}
+
+.putt2 {
+  background-color: var(--clr-twoPutt);
+}
+
+.putt3 {
+  background-color: var(--clr-threePutt);
+}
+
+.wheel-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr-grey-4);
+  min-height: 100vh;
+}
+
+.wheel-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wheel-container .spin-btn {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border: 4px solid var(--clr-black);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+.wheel-container .spin-btn h2 {
+  color: var(--clr-mark);
+}
+.wheel-container .spin-btn h2,
+.wheel-container .spin-btn p {
+  margin: 0;
+  padding: 0;
+}
+.wheel-container .spin-btn:hover {
+  background-color: var(--clr-mark);
+}
+.wheel-container .spin-btn:hover p,
+.wheel-container .spin-btn:hover h2 {
+  color: var(--clr-white);
+}
+.wheel-container .spin-btn::before {
+  content: "";
+  position: absolute;
+  top: -165px;
+  width: 35px;
+  height: 60px;
+  background-color: var(--clr-mark);
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+  -webkit-clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+.wheel-container .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-black);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--clr-mark);
+  box-shadow: var(--dark-shadow);
+  transition: transform 5s ease-in-out;
+}
+.wheel-container .wheel .wheel-number {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: bottom right;
+  transform: rotate(calc(3.6deg * var(--i)));
+  clip-path: polygon(0% 0%, 4.6% 0%, 100% 100%, 0% 6.6%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.wheel-container .wheel .wheel-number span {
+  color: var(--clr-white);
+  position: relative;
+  transform: rotate(320deg);
+  font-size: 1em;
+  font-weight: 600;
+  text-shadow: 2px 3px 2px var(--clr-black);
+}
+.wheel-container .wheel .wheel-number span::before {
+  content: "";
+  position: absolute;
+  font-size: 0.75em;
+}
+
+/* 
+=================================
+UserOptions.jsx
+=================================
+*/
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: var(--clr-grey-9);
+  color: var(--clr-black);
+}
+@media (max-width: 700px) {
+  .options-container {
+    min-height: 25vh;
+    padding: 1em 0;
+  }
+}
+.options-container .options {
+  display: flex;
+  flex-direction: column;
+}
+.options-container .options .options-handicap,
+.options-container .options .options-distance {
+  display: flex;
+  padding-bottom: 1em;
+  justify-content: space-between;
+}
+.options-container .options .options-handicap label,
+.options-container .options .options-distance label {
+  font-size: 2em;
+}
+.options-container .options .options-handicap select,
+.options-container .options .options-distance select {
+  font-family: "Luckiest Guy", cursive !important;
+  width: 100px;
+  margin-left: 1em;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.options-container .options .options-handicap .options-hdc,
+.options-container .options .options-distance .options-dist {
+  font-family: "Luckiest Guy", cursive !important;
+  text-align: center;
+  font-size: 1em;
+}
+.options-container .options button {
+  font-family: "Luckiest Guy", cursive !important;
+  margin-bottom: 1em;
+  padding: 10px;
+  background-color: var(--clr-grey-4);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.options-container .options button:hover {
+  background-color: var(--clr-mark);
+  color: var(--clr-white);
+}
+
+/* 
+=================================
+Settings.jsx   modal
+=================================
+*/
+.settings-container {
+  background: var(--clr-grey-4);
+  padding: 10px;
+  z-index: 1000;
+}
+.Modal {
+  top: "50%";
+  left: "30%";
+  right: "auto";
+  bottom: "auto";
+  margin-right: "-50%";
+  transform: "translate(-50%, -50%)";
+  background: "var(--clr-grey-10)";
+  padding: "70px";
+  z-index: "100";
+  border: "3px solid var(--clr-black)";
+}
+.settings-closBTN {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+.settings-form {
+  display: flex;
+  flex-direction: column;
+}
+.settings-form .form-select {
+  display: flex;
+  margin-bottom: 10px;
+}
+.settings-form .form-select input {
+  margin-left: 20px;
+  font-size: 1em;
+}
