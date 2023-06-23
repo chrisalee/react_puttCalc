@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_puttCalc/static/css/main.4ff47134.css",
+    "main.js": "/react_puttCalc/static/js/main.d43b9417.js",
+    "index.html": "/react_puttCalc/index.html",
+    "main.4ff47134.css.map": "/react_puttCalc/static/css/main.4ff47134.css.map",
+    "main.d43b9417.js.map": "/react_puttCalc/static/js/main.d43b9417.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ff47134.css",
+    "static/js/main.d43b9417.js"
+  ]
+}
