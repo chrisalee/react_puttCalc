@@ -37,7 +37,7 @@ const Settings = () => {
         </button>
         <form action="" className="settings-form">
           <div className="form-select">
-            <label htmlFor="onePutt">1-putt:</label>
+            <label htmlFor="colorPutt1">1-putt:</label>
             <input
               type="color"
               id="colorPutt1"
@@ -49,7 +49,7 @@ const Settings = () => {
             />
           </div>
           <div className="form-select">
-            <label htmlFor="twoPutt">2-putt:</label>
+            <label htmlFor="colorPutt2">2-putt:</label>
             <input
               type="color"
               id="colorPutt2"
@@ -61,7 +61,7 @@ const Settings = () => {
             />
           </div>
           <div className="form-select">
-            <label htmlFor="threePutt">3-putt:</label>
+            <label htmlFor="colorPutt3">3-putt:</label>
             <input
               type="color"
               id="colorPutt3"

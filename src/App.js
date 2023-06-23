@@ -1,4 +1,4 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import "./App.css";
 import Modal from "react-modal";
 import UserOptions from "./components/UserOptions";
@@ -13,6 +13,10 @@ function App() {
   const [distance, setDistance] = useState(8);
   const [dataDistance, setDataDistance] = useState([]);
 
+  const distanceRef = useRef(distance);
+  const handicapRef = useRef(handicap);
+  const dataDistanceRef = useRef(dataDistance);
+
   const [colorPutt1, setColorPutt1] = useState("#0e9ef1");
   const [colorPutt2, setColorPutt2] = useState("#0ba245");
   const [colorPutt3, setColorPutt3] = useState("#e42121");
@@ -23,13 +27,13 @@ function App() {
 
   const openModal = () => {
     setModalIsOpen(true);
-  }
+  };
   const afterModalOpen = () => {
-    console.log('modal open')
-  }
+    console.log("adjust settings");
+  };
   const closeModal = () => {
     setModalIsOpen(false);
-  }
+  };
 
   const handleSpin = () => {
     let wheel = document.querySelector(".wheel");
@@ -38,44 +42,42 @@ function App() {
     value += Math.ceil(Math.random() * 3600);
   };
 
-  const handleShuffle = useCallback(() => {
-    // randomize the array,
-    // wheel for given distance can look different every time
-    // with same number one-putt, two-putt, three-putt sections
+  const handleShuffle = () => {
     dataDistance.sort(() => (Math.random() > 0.5 ? 1 : -1));
-  }, [dataDistance]);
+  };
 
   useEffect(() => {
+    handicapRef.current = handicap;
+    distanceRef.current = distance;
     const wheelArr = [];
     const generateWheel = () => {
-      if(dataDistance.length > 100) {
-        dataDistance.length = 0;
-      }
-
-      for (let i = 0; i < data[handicap][distance].onePutt; i++) {
+      for (
+        let i = 0;
+        i < data[handicapRef.current][distanceRef.current].onePutt;
+        i++
+      ) {
         wheelArr.push(1);
       }
-      for (let i = 0; i < data[handicap][distance].twoPutt; i++) {
+      for (
+        let i = 0;
+        i < data[handicapRef.current][distanceRef.current].twoPutt;
+        i++
+      ) {
         wheelArr.push(2);
       }
-      for (let i = 0; i < data[handicap][distance].threePutt; i++) {
+      for (
+        let i = 0;
+        i < data[handicapRef.current][distanceRef.current].threePutt;
+        i++
+      ) {
         wheelArr.push(3);
       }
-    }
+    };
+    dataDistanceRef.current = wheelArr;
     setDataDistance(wheelArr);
     generateWheel();
-    handleShuffle();
-    // dataDistance.sort(() => (Math.random() > 0.5 ? 1 : -1));
-  }, [distance, handicap]);
-
-  // const handleColorPutt1Change = (color, e) => {
-  //   document.querySelectorAll("putt1").forEach((wheelSection) => {
-  //     wheelSection.style.backgroundColor = e.target.value;
-  //     setColorPutt1(e.target.value);
-  //   })
-  // };
-
-  console.log(colorPutt1, colorPutt2, colorPutt3);
+    // handleShuffle();
+  }, [handicap, distance]);
 
   return (
     <AppContext.Provider
@@ -97,6 +99,9 @@ function App() {
         setColorPutt1,
         setColorPutt2,
         setColorPutt3,
+        distanceRef,
+        handicapRef,
+        dataDistanceRef,
       }}
     >
       <div className="app">

@@ -5,8 +5,6 @@ import { AppContext } from "../App.js";
 const Wheel = () => {
   const { distance, handicap, handleSpin, dataDistance, handleShuffle,  colorPutt1, colorPutt2, colorPutt3 } = useContext(AppContext);
   handleShuffle();
-
-  // const [putt1, putt2, putt3] = [colorPutt1, colorPutt2, colorPutt3];
   
   return (
     <div className="wheel-body">
