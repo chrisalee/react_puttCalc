@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import data from "../data.js";
 import { AppContext } from "../App.js";
+import ThePointer from "./ThePointer.jsx";
 
 const Wheel = () => {
   const { distance, handicap, handleSpin, dataDistance, handleShuffle,  colorPutt1, colorPutt2, colorPutt3 } = useContext(AppContext);
-  handleShuffle();
+
+  useEffect(() => {
+    handleShuffle();
+  }, [distance, handicap, handleShuffle]);
   
   return (
     <div className="wheel-body">
       <div className="wheel-container">
-        <div className="spin-btn" onClick={handleSpin}>
+        <ThePointer />
+        <div className="spin-btn" onClick={handleSpin} >
           <h2>Click to Spin</h2>
           <h5>{distance} feet from hole</h5>
           <p>1-putt: {data[handicap][distance].onePutt}%</p>

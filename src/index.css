@@ -1,32 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');/*
-=============== 
+===========================================================================
 Variables
-===============
+===========================================================================
 */
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(153, 86%, 17%);
-  --clr-primary-2: hsl(151, 77%, 27%);
-  --clr-primary-3: hsl(141, 72%, 37%);
-  --clr-primary-4: hsl(145, 63%, 48%);
   /* putt colors */
   --clr-onePutt: #0e9ef1;
   --clr-twoPutt: #0ba245;
   --clr-threePutt: #e42121;
   --clr-mark: hsl(58, 80%, 43%);
-  /* darkest grey - used for headings */
-  --clr-grey-1: hsl(209, 61%, 16%);
-  --clr-grey-2: hsl(211, 39%, 23%);
-  --clr-grey-3: hsl(209, 34%, 30%);
   --clr-grey-4: hsl(209, 28%, 39%);
-  /* grey used for paragraphs */
-  --clr-grey-5: hsl(210, 22%, 49%);
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
   --clr-white: #fff;
   --clr-black: #222;
   --transition: all 0.3s linear;
@@ -39,9 +24,9 @@ Variables
 }
 
 /*
-=============== 
+=========================================================================== 
 Global Styles
-===============
+===========================================================================
 */
 *,
 ::after,
@@ -52,8 +37,8 @@ Global Styles
 }
 body {
   font-family: 'Luckiest Guy', cursive !important;
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
+  background: var(--clr-grey-9);
+  color: var(--clr-black);
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -86,7 +71,7 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
-  color: var(--clr-grey-3);
+  color: var(--clr-grey-4);
 }
 @media screen and (min-width: 800px) {
   h1 {
